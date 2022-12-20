@@ -3,7 +3,13 @@
 # //////////////////////////////
 terraform {
   backend "s3" {
-  }
+    config {
+    bucket     = "schmis74-tfremotestate"
+    lock_table = "red30-tfstatelock"
+    region     = "eu-central-1"
+    key        = "schmis74/ecommerceapp/app.state"
+    }
+  }  
 }
 
 # //////////////////////////////
@@ -14,7 +20,7 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
 variable "region" {
-  default = "us-east-2"
+  default = "eu-central-1"
 }
 
 variable "vpc_cidr" {
@@ -45,7 +51,7 @@ module "vpc" {
 
   cidr = "10.0.0.0/16"
 
-  azs             = ["us-east-2a", "us-east-2b", "us-east-2c"]
+  azs             = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 
