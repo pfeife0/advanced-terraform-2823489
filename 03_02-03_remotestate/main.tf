@@ -3,12 +3,12 @@
 # //////////////////////////////
 terraform {
   backend "s3" {
-    config {
+    
     bucket     = "schmis74-tfremotestate"
-    lock_table = "red30-tfstatelock"
+    dynamodb_table  = "red30-tfstatelock"
     region     = "eu-central-1"
     key        = "schmis74/ecommerceapp/app.state"
-    }
+    
   }  
 }
 
