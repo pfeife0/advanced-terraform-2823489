@@ -7,9 +7,5 @@
 *.lock.info
 .terraform
 .DS_Store
-<<<<<<< HEAD
 commands.txt
-.terraform.lock.hcl
-=======
-commands.txt
->>>>>>> refs/remotes/origin/master
+*.terraform.lock.hcl
